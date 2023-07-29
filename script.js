@@ -1,3 +1,6 @@
+// Global Constants
+html_output_round_off_digits = 2
+
 function calculateStandardDeviation(arr) {
   const n = arr.length;
   const mean = arr.reduce((sum, val) => sum + val, 0) / n;
@@ -97,14 +100,14 @@ function displayResults(newDist, newPos, turnsRequired) {
   resultHTML += '<h3>New Blades Distance:</h3>';
   resultHTML += '<ul>';
   for (let i = 0; i < newDist.length; i++) {
-    resultHTML += `<li>Blade ${i + 1}: ${newDist[i]} cm</li>`;
+    resultHTML += `<li>Blade ${i + 1}: ${Number(newDist[i]).toFixed(html_output_round_off_digits)} cm</li>`;
   }
   resultHTML += '</ul>';
 
   resultHTML += '<h3>New Control Rod Positions:</h3>';
   resultHTML += '<ul>';
   for (let i = 0; i < newPos.length; i++) {
-    resultHTML += `<li>Blade ${i + 1}: ${newPos[i]}</li>`;
+    resultHTML += `<li>Blade ${i + 1}: ${Number(newPos[i]).toFixed(html_output_round_off_digits)}</li>`;
   }
   resultHTML += '</ul>';
 
@@ -112,7 +115,7 @@ function displayResults(newDist, newPos, turnsRequired) {
   resultHTML += '<h3>Turns Required for Control Rods:</h3>';
   resultHTML += '<ul>';
   for (let i = 0; i < turnsRequired.length; i++) {
-    resultHTML += `<li>Blade ${i + 1} Turns Required: ${turnsRequired[i]}</li>`;
+    resultHTML += `<li>Blade ${i + 1} Turns Required: ${Number(turnsRequired[i]).toFixed(html_output_round_off_digits)}}</li>`;
   }
   resultHTML += '</ul>';
 
