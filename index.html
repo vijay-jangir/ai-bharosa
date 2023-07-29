@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blade Alignment</title>
+</head>
+
+<body>
+    <h1>Blade Alignment</h1>
+    <form>
+        <label for="step_distance_cm">Step Distance (cm):</label>
+        <input type="number" id="step_distance_cm" value="1" required><br>
+
+        <label for="min_step_turn">Minimum Step Turn:</label>
+        <input type="number" id="min_step_turn" value="0.1666" required><br>
+
+        <label for="initial_control_pos">Initial Control Rod Position:</label>
+        <input type="text" id="initial_control_pos" value="[380, 380, 380, 380, 380]" required><br>
+
+        <label for="initial_blade_dist_cm">Initial Blade Distance (cm):</label>
+        <input type="text" id="initial_blade_dist_cm" value="[348, 355, 350, 351, 352]" required><br>
+
+        <label for="min_control_rod_pos">Minimum Control Rod Position:</label>
+        <input type="number" id="min_control_rod_pos" value="375" required><br>
+
+        <label for="max_control_rod_pos">Maximum Control Rod Position:</label>
+        <input type="number" id="max_control_rod_pos" value="385" required><br>
+
+        <label for="error_limit_cm">Error Limit (cm):</label>
+        <input type="number" id="error_limit_cm" value="2" required><br>
+
+        <button type="button" onclick="displayResultsAlignBlades()">Align Blades</button>
+    </form>
+
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
