@@ -7,7 +7,7 @@
 <meta name="googlebot" content="index,follow,snippet,archive">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Authors</title>
+<title>Ai-Bharosa</title>
 <meta name="author" content="ICAR" />
 
 
@@ -69,7 +69,7 @@
 
 <meta name="twitter:card" content="summary">
 
-<meta name="twitter:title" content="Authors">
+<meta name="twitter:title" content="Ai-Bharosa">
 
 <meta name="twitter:description" content="">
 
@@ -80,7 +80,6 @@
   <body>
 
     <div id="all">
-
         
 
 
@@ -90,10 +89,10 @@
             <div class="navbar-header">
                 <a class="navbar-brand home" href="/blade_alignment/">
                     
-                      <img src="/blade_alignment/img/icar_logo.jpg" alt="Authors logo" class="hidden-xs hidden-sm" />
-                      <img src="/blade_alignment/img/icar_logo.jpg" alt="Authors logo" class="visible-xs visible-sm" />
+                      <img src="/blade_alignment/img/icar_logo.jpg" alt="Ai-Bharosa logo" class="hidden-xs hidden-sm" />
+                      <img src="/blade_alignment/img/icar_logo.jpg" alt="Ai-Bharosa logo" class="visible-xs visible-sm" />
                     
-                    <span class="sr-only">Authors - go to homepage</span>
+                    <span class="sr-only">Ai-Bharosa - go to homepage</span>
                 </a>
                 <div class="navbar-buttons">
                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -195,7 +194,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Authors</h1>
+                <h1>Ai-Bharosa</h1>
             </div>
         </div>
     </div>
@@ -203,57 +202,45 @@
 
 
         <div id="content">
-            <div class="container">
-                <div class="row">
-                    
+            
 
-                    <div class="col-md-9" id="blog-listing-medium">
+              <div class="container" id="calculator">
+  <div class="col-md-6">
+    <form class="row g-3">
+      <div class="form-group form-check">
+        <label for="step_distance_cm">Step Distance (The change in blade height with minimum turn step in cms):</label>
+        <input type="number" class="form-control " id="step_distance_cm" value="1" required><br>
 
-                        
-                        
+        <label for="min_step_turn">Minimum Turn Step:</label>
+        <input type="number" class="form-control" id="min_step_turn" value="0.1666" required><br>
 
-                        <ul class="pager">
-                            
-                            <li class="previous disabled"><a href="#">&larr; Newer</a></li>
-                            
+        <label for="initial_control_pos">Initial Control Rod Position:</label>
+        <input type="text" class="form-control" id="initial_control_pos" value="[380, 380, 380, 380, 380]" required><br>
 
-                            
-                            <li class="next disabled"><a href="#">Older &rarr;</a></li>
-                            
-                        </ul>
-                    </div>
-                    
+        <label for="initial_blade_dist_cm">Initial Blade Distances (from ground in cms):</label>
+        <input type="text" class="form-control" id="initial_blade_dist_cm" value="[348, 355, 350, 351, 352]" required><br>
 
-                    
+        <label for="min_control_rod_pos">Minimum Control Rod Turns:</label>
+        <input type="number" class="form-control" id="min_control_rod_pos" value="375" required><br>
 
-                    
+        <label for="max_control_rod_pos">Maximum Control Rod Turns:</label>
+        <input type="number" class="form-control" id="max_control_rod_pos" value="385" required><br>
 
-                    <div class="col-md-3">
+        <label for="error_limit_cm" class="form-label">Acceptable difference between the farthest blades (cm):</label>
+        <input type="text" class="form-control" id="error_limit_cm" value="2" required><br>
+        
+      </div>
 
-                        
+      <div class="form-group form-check">
+        <button type="button" id="submit-btn-aligner" class="btn btn-primary" onclick="displayResultsAlignBlades()">Generate Adjustment Recommendations </button>
+      </div>
+    </form>
+  </div>
 
-                        
+  <div class="col-md-8" id="output"></div>
+  <script src=/blade_alignment/js/script.js></script>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-                        
-
-                    </div>
-                    
-
-                    
-
-                </div>
-                
-            </div>
             
         </div>
         

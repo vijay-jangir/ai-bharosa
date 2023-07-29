@@ -11,3 +11,19 @@
 .box-simple {
   min-height: 230px;
 }
+
+.bar.background-image-icar-1 {
+  background: url('../img/fixed-background-icar-1.jpg') center top no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+/* .jumbotron {
+  padding: 30px;
+  margin-bottom: 0;
+  position: relative;
+  background: url('../img/jumbotron-icar.jpg') center center repeat;
+  background-size: cover;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+} */

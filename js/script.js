@@ -108,6 +108,14 @@ function displayResults(newDist, newPos, turnsRequired) {
   const outputDiv = document.getElementById('output');
   let resultHTML = '<h2>Results:</h2>';
 
+  // Display turns required for each blade
+  resultHTML += '<h3>Turns Required for Control Rods:</h3>';
+  resultHTML += '<ul>';
+  for (let i = 0; i < turnsRequired.length; i++) {
+    resultHTML += `<li>Blade ${i + 1} Turns Recommended for Control Rods: ${Number(turnsRequired[i]).toFixed(html_output_round_off_digits)}</li>`;
+  }
+  resultHTML += '</ul>';
+
   // Display new distance and new position
   resultHTML += '<h3>New Blades Distance:</h3>';
   resultHTML += '<ul>';
@@ -120,14 +128,6 @@ function displayResults(newDist, newPos, turnsRequired) {
   resultHTML += '<ul>';
   for (let i = 0; i < newPos.length; i++) {
     resultHTML += `<li>Blade ${i + 1}: ${Number(newPos[i]).toFixed(html_output_round_off_digits)}</li>`;
-  }
-  resultHTML += '</ul>';
-
-  // Display turns required for each blade
-  resultHTML += '<h3>Turns Required for Control Rods:</h3>';
-  resultHTML += '<ul>';
-  for (let i = 0; i < turnsRequired.length; i++) {
-    resultHTML += `<li>Blade ${i + 1} Turns Required: ${Number(turnsRequired[i]).toFixed(html_output_round_off_digits)}}</li>`;
   }
   resultHTML += '</ul>';
 
