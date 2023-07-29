@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on AI-Bharosa</title>
-    <link>https://vijay-jangir.github.io/blade_alignment/tags/</link>
+    <link>https://vijay-jangir.github.io/ai-bharosa/tags/</link>
     <description>Recent content in Tags on AI-Bharosa</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://vijay-jangir.github.io/blade_alignment/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://vijay-jangir.github.io/ai-bharosa/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
