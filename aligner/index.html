@@ -36,7 +36,7 @@
 
 
 
-<link href="/blade_alignment/css/custom.css?1690485789" rel="stylesheet">
+<link href="/blade_alignment/css/custom.css?1690495363" rel="stylesheet">
 
 
 
@@ -206,10 +206,10 @@
 
               <div class="container" id="aligner">
   <div class="col-md-6">
-    <form>
+    <form class="row g-3">
       <div class="form-group form-check">
         <label for="step_distance_cm">Step Distance (cm):</label>
-        <input type="number" class="form-control" id="step_distance_cm" value="1" required><br>
+        <input type="number" class="form-control " id="step_distance_cm" value="1" required><br>
 
         <label for="min_step_turn">Minimum Step Turn:</label>
         <input type="number" class="form-control" id="min_step_turn" value="0.1666" required><br>
@@ -226,18 +226,18 @@
         <label for="max_control_rod_pos">Maximum Control Rod Position:</label>
         <input type="number" class="form-control" id="max_control_rod_pos" value="385" required><br>
 
-        <label for="error_limit_cm">Error Limit (cm):</label>
-        <input type="number" class="form-control" id="error_limit_cm" value="2" required><br>
+        <label for="error_limit_cm" class="form-label">Error Limit (cm):</label>
+        <input type="text" class="form-control" id="error_limit_cm" value="2" required><br>
+        
       </div>
 
       <div class="form-group form-check">
-        <button type="button" class="btn btn-primary" onclick="displayResultsAlignBlades()">Align Blades</button>
+        <button type="button" id="submit-btn-aligner" class="btn btn-primary" onclick="displayResultsAlignBlades()">Align Blades</button>
       </div>
     </form>
   </div>
 
   <div class="col-md-8" id="output"></div>
-
   <script src=/blade_alignment/js/script.js></script>
 </div>
 

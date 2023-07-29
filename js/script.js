@@ -11,17 +11,29 @@ function calculateStandardDeviation(arr) {
 
 function alignBlades() {
   // Fetching input values
-  oneStepDistanceCm = parseFloat(document.getElementById('step_distance_cm').value) || 1 ;
-  oneStepPosTurn = parseFloat(document.getElementById('min_step_turn').value) || 0.16666667 ;
-  bladeDistGroundCmArr = JSON.parse(document.getElementById('initial_blade_dist_cm').value) || [348, 355, 353, 349, 360] ;
-  bladeDistAllowedDeltaCm = parseFloat(document.getElementById('error_limit_cm').value) || 2 ;
-  controlRodInitialPosArr = JSON.parse(document.getElementById('initial_control_pos').value) || [380, 380, 380, 380, 380] ;
-  controlRodMinPosValue = parseFloat(document.getElementById('min_control_rod_pos').value) || 375 ;
-  controlRodMaxPosValue = parseFloat(document.getElementById('max_control_rod_pos').value) || 385 ;
+  oneStepDistanceCm = parseFloat(document.getElementById('step_distance_cm').value);
+  oneStepPosTurn = parseFloat(document.getElementById('min_step_turn').value);
+  bladeDistGroundCmArr = JSON.parse(document.getElementById('initial_blade_dist_cm').value);
+  bladeDistAllowedDeltaCm = parseFloat(document.getElementById('error_limit_cm').value);
+  controlRodInitialPosArr = JSON.parse(document.getElementById('initial_control_pos').value);
+  controlRodMinPosValue = parseFloat(document.getElementById('min_control_rod_pos').value);
+  controlRodMaxPosValue = parseFloat(document.getElementById('max_control_rod_pos').value);
   // Validations
   if (bladeDistGroundCmArr.length !== controlRodInitialPosArr.length) {
-    throw new Error('bladeDistGroundCmArr and controlRodInitialPosArr must have the same length');
+    alert('Blade Distance and Control Rod Position must have the same length');
+    return;
   }
+  // Perform explicit checks for blank, NaN, null, or undefined values
+  if (
+    isNaN(oneStepDistanceCm) || isNaN(oneStepPosTurn) || isNaN(controlRodMinPosValue) ||
+    isNaN(controlRodMaxPosValue) || isNaN(bladeDistAllowedDeltaCm) ||
+    !bladeDistGroundCmArr || !controlRodInitialPosArr
+  ) {
+    // Display an error message if any value is missing or not valid
+    alert('Please fill in all the required fields correctly.');
+    return;
+  }
+  
 
   const maxIterations = 1000; // to break infinite loop
   const numBlades = bladeDistGroundCmArr.length;
@@ -38,7 +50,6 @@ function alignBlades() {
       aligned = false
       break;
     }
-
     if (Math.max(...currentDistSolution) - Math.min(...currentDistSolution) <= bladeDistAllowedDeltaCm) {
       console.log('Completed');
       console.log(currentDistSolution);
@@ -82,6 +93,7 @@ function alignBlades() {
     return [currentDistSolution, currentPosSolution, turnsRequired];
   } else {
     alert('Blades cannot be aligned within the specified limits.');
+    return;
   }
 }
 
@@ -122,11 +134,27 @@ function displayResults(newDist, newPos, turnsRequired) {
   outputDiv.innerHTML = resultHTML;
 }
 
+function clearExistingResults() {
+  const outputDiv = document.getElementById('output');
+  let resultHTML = '';
+  outputDiv.innerHTML = resultHTML;
+}
 
 function displayResultsAlignBlades() {
-  // Usage
-  const [newDist, newPos, turnsRequired] = alignBlades();
-
-  // Display results in HTML format
-  displayResults(newDist, newPos, turnsRequired);
+  const alignmentOutput = alignBlades();
+  if (alignmentOutput && Array.isArray(alignmentOutput)) {
+    const [newDist, newPos, turnsRequired] = alignmentOutput;
+    displayResults(newDist, newPos, turnsRequired);
+  }
+  else {
+    console.log("no values returned")  
+    clearExistingResults()
+  }
 }
+// $('#submit-btn-aligner').on('click', function() {
+//   console.log("here");
+//   console.log( $("#aligner"));
+//   console.log( $("#aligner")[0].oninvalid());
+//   $("#aligner")[0].reportValidity() ;
+// });
+
